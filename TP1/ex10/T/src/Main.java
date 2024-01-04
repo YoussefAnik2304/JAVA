@@ -33,10 +33,10 @@ public class Main {
         avg/=100;
         int[] occurence=new int[200];
         for(int i=0;i<100;i++){
-            occurence[T[i]]++;
+            occurence[T[i]-100]++;
         }
         int max_occurence=0;
-        int element =1;
+        int element =occurence[0];
         for(int i=0;i<100;i++){
             if(max_occurence<occurence[T[i]]) {
                 max_occurence = occurence[T[i]];
