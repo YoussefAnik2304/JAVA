@@ -1,11 +1,9 @@
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         // Saisie du texte
-        String text ="";
+        String text ="hello who hello yes who no yes who no hello o  ";
         // Utilise une table de hachage (Hashtable) pour stocker <mot, nombre>
         Hashtable<String, Integer> map = new Hashtable<>();
 
@@ -33,6 +31,20 @@ public class Main {
 
         for (Map.Entry<String, Integer> entry : sortedWordCountMap.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        TreeSet<Map.Entry<String, Integer>> sortedWordOccurrencesSet = new TreeSet<>(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> entry1, Map.Entry<String, Integer> entry2) {
+                if(entry1.getValue().compareTo(entry2.getValue())==0){
+                    return entry1.getKey().compareTo(entry2.getKey());
+                }
+                return entry1.getValue().compareTo(entry2.getValue());
+            }
+        });
+        sortedWordOccurrencesSet.addAll(map.entrySet());
+        System.out.println("treeset ");
+        for (Map.Entry<String,Integer> a : sortedWordOccurrencesSet){
+            System.out.println(a.getKey()+ " " + a.getValue());
         }
 
 
